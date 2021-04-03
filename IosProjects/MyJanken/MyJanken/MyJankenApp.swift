@@ -2,7 +2,7 @@
 //  MyJankenApp.swift
 //  MyJanken
 //
-//  Created by 濵田　大輝 on 2021/03/28.
+//  Created by 濵田　大輝 on 2021/03/31.
 //
 
 import SwiftUI
