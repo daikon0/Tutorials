@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
     
-    @State var timeValue = 10
+    @AppStorage("timer_value") var timerValue = 10
     
     var body: some View {
         ZStack {
@@ -21,12 +21,12 @@ struct SettingView: View {
                     
                     Spacer()
                     
-                    Text("\(timeValue)秒")
+                    Text("\(timerValue)秒")
                         .font(.largeTitle)
                     
                     Spacer()
 
-                    Picker(selection: $timeValue, label: Text("選択")) {
+                    Picker(selection: $timerValue, label: Text("選択")) {
                         Text("10")
                             .tag(10)
                         Text("20")
