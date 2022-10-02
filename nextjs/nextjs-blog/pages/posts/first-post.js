@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
 
 export default function FirstPost() {
   return (
@@ -9,6 +11,12 @@ export default function FirstPost() {
           <a>Back to home</a>
         </Link>
       </h2>
+      <Image
+        src="/images/profile.jpeg"
+        height={144}
+        width={144}
+        alt="Your Name"
+      />
     </>
   );
 }
