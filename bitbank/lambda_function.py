@@ -1,20 +1,22 @@
 import python_bitbankcc
 import os
 
-def lambda_handler(event, context):
-    API_KEY = os.environ['BITBANK_API_KEY']
-    API_SECRET = os.environ['BITBANK_API_SECRET']
+API_KEY = os.environ['BITBANK_API_KEY']
+API_SECRET = os.environ['BITBANK_API_SECRET']
 
+BUY_PRICE = 500
+
+def lambda_handler(event, context):
     prv = python_bitbankcc.private(API_KEY, API_SECRET)
     pub = python_bitbankcc.public()
-    btc_price = pub.get_ticker('btc_jpy')['buy']
-    buy_price = 500
-    amount = buy_price / float(btc_price)
+
+    current_btc_price = float(pub.get_ticker('btc_jpy')['buy'])
+    amount = BUY_PRICE / current_btc_price
 
     # 注文
-    order = prv.order(
+    prv.order(
         'btc_jpy', # ペア
-        btc_price, # 価格
+        current_btc_price, # 価格
         amount, # 注文枚数
         'buy', # 注文サイド
         'market' # 注文タイプ
