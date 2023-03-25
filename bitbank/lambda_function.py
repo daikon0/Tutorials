@@ -8,10 +8,8 @@ def lambda_handler(event, context):
     prv = python_bitbankcc.private(API_KEY, API_SECRET)
     pub = python_bitbankcc.public()
     btc_price = pub.get_ticker('btc_jpy')['buy']
-    print(btc_price)
     buy_price = 500
     amount = buy_price / float(btc_price)
-    print(amount)
 
     # 注文
     order = prv.order(
@@ -21,4 +19,3 @@ def lambda_handler(event, context):
         'buy', # 注文サイド
         'market' # 注文タイプ
     )
-    print(order)
