@@ -11,13 +11,14 @@ def lambda_handler(event, context):
     pub = python_bitbankcc.public()
 
     current_btc_price = float(pub.get_ticker('btc_jpy')['buy'])
-    amount = BUY_PRICE / current_btc_price
+    target_btc_price = current_btc_price - 300
+    target_btc_amount = BUY_PRICE / target_btc_price
 
     # 注文
     prv.order(
         'btc_jpy', # ペア
-        current_btc_price, # 価格
-        amount, # 注文枚数
+        target_btc_price, # 価格
+        target_btc_amount, # 注文枚数
         'buy', # 注文サイド
-        'market' # 注文タイプ
+        'limit' # 注文タイプ
     )
