@@ -47,6 +47,7 @@ function Board({xIsNext, squares, onPlay}) {
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
+  const [isAsc, setIsAsc] = useState(true);
   const xIsNext = (currentMove % 2) === 0;
   const currentSquares = history[currentMove];
 
@@ -79,13 +80,23 @@ export default function Game() {
     )
   })
 
+  const sortedMoves = isAsc ? moves : moves.slice().reverse();
+
+  function onToggleClick() {
+    setIsAsc(!isAsc);
+  }
+
   return (
     <div className="game">
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <ol>{moves}</ol>
+        <div className="toggle_button">
+          <input id="toggle" className="toggle_input" type='checkbox' onClick={onToggleClick} />
+          <label htmlFor="toggle" className="toggle_label" />
+        </div>
+        <ol>{sortedMoves}</ol>
       </div>
     </div>
   )
