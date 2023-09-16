@@ -139,3 +139,7 @@ body {
   height: 35px;
   margin: auto;
 }
+
+.highlight {
+  background-color: #4BD865;
+}
