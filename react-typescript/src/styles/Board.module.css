@@ -1,0 +1,4 @@
+.board_row {
+    display: flex;
+    margin-left: 20px;
+}
