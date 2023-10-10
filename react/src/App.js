@@ -6,6 +6,8 @@ import FoodList from './FoodList'
 export default function App() {
   return (
     <div>
+      <h1>Original Tic Tac Toe</h1>
+
       <h1>React Tic Tac Toe</h1>
       <TicTacToe />
 
