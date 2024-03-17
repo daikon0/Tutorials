@@ -9,6 +9,7 @@ packages = [{include = "fastapi_official"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = {extras = ["all"], version = "^0.110.0"}
+uvicorn = {extras = ["standard"], version = "^0.28.0"}
 
 
 [build-system]
